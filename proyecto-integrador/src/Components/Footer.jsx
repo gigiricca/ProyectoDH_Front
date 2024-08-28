@@ -13,7 +13,7 @@ const Footer = () => {
 
                 <div className={FooterStyle.icons}>
                     <img src='../../public/x.png' alt='Logo x' />
-                    <img src='../../public/instagram.png' alt='Logo instagram' />
+                    <img src='/public/instagram.png' alt='Logo instagram' />
                     <img src='../../public/linkedin.png' alt='Logo linkedin' />
                     <img src='../../public/whatsapp.png' alt='Logo whatsapp' />
                     <img src='../../public/facebook.png' alt='Logo facebook' />
