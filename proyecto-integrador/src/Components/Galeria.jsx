@@ -18,9 +18,11 @@ const Galeria = () => {
       }
 
       // Obtener imágenes desde el backend
+      // Obtener la URL base del backend desde las variables de entorno
+      const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
       const fetchImages = async () => {
         try {
-          const response = await axios.get('http://localhost:3000/api/productos');
+          const response = await axios.get(`${API_BASE_URL}/api/productos`);
           const productos = response.data.productos;
           const images = productos.flatMap(producto => producto.imagenes.map(imagen => ({
             src: imagen.url,
