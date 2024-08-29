@@ -11,9 +11,11 @@ function UserManagement({ handleEditClick }) {
     const [searchText, setSearchText] = useState('');
 
     // Fetch users from API
+    // Obtener la URL base del backend desde las variables de entorno
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
     const fetchUsers = async (query = '') => {
         try {
-            const response = await axios.get(`http://localhost:3000/api/usuarios${query}`);
+            const response = await axios.get(`${API_BASE_URL}/api/usuarios${query}`);
             setUsers(response.data);
         } catch (error) {
             console.error('Error fetching users:', error);
@@ -51,7 +53,7 @@ function UserManagement({ handleEditClick }) {
         if (confirmation) {
             try {
                 // Call the backend to update the role
-                await axios.put('http://localhost:3000/api/usuarios/cambiar-rol', {
+                await axios.put(`${API_BASE_URL}/api/usuarios/cambiar-rol`, {
                     id: userId, // Asegúrate de enviar el id
                     rolId: newRolId // Asegúrate de enviar rolId en lugar de nuevoRolId
                 });
